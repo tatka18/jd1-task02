@@ -16,6 +16,7 @@ public class TaskDecompose {
 		task14();
 		task16();
 		task17();
+		task18();
 		task19();
 		task20();
 	}
@@ -756,6 +757,66 @@ public class TaskDecompose {
 	public static void print(int i) {
 		System.out.print(i + " ");
 			
+	}
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////////
+	public static void task18() {
+		
+		// 18. Найти все натуральные n-значные числа, цифры в которых образуют строго
+		// возрастающую последовательность
+		// (например, 1234, 5789). Для решения задачи использовать декомпозицию.
+
+		int n = 3;
+
+		int min;
+		int max;
+		boolean increasing;
+
+		min = min(n);
+		max = max(n);
+
+		for (int i = min; i < max; i++) {
+			increasing(i, n);
+			increasing = increasing(i, n);
+
+			if (increasing == true) {
+				print(i);
+			}
+		}
+	}
+
+	public static int min(int n) {
+		int min;
+		min = (int) Math.pow(10, (n - 1));
+		return min;
+	}
+
+	public static int max(int n) {
+		int max;
+		max = (int) Math.pow(10, n) - 1;
+		return max;
+	}
+
+	public static boolean increasing(int x, int n) {
+
+		int number;
+		int max = 10;
+
+		for (int i = 0; i < n; i++) {
+			number = x % 10;
+			x = x / 10;
+
+			if (number < max) {
+				max = number;
+			} else {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public static void print(int i) {
+		System.out.println(i);
 	}
 	
 	////////////////////////////////////////////////////////////////////////////////////////////////////////
